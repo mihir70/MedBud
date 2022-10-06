@@ -1,0 +1,27 @@
+{% load static %}
+{% for prescription in prescriptions %}
+<div class="roomListRoom">
+    <div class="roomListRoom__header">
+        <div class="roomListRoom__actions">
+            <span>{{prescription.created | timesince}} ago&nbsp;&nbsp; <a href="{% url 'delete-prescription' prescription.id %}" class="btn btn-info">
+                Delete</a></span>
+            
+        </div>
+    </div>
+    <div class="roomListRoom__content">
+        <span>Name: {{prescription.name}}</span>
+    </div>
+    <div>
+      <h5>Description:</h5>
+        <br>
+        <p class="roomListRoom__topic">{{prescription.description}}</p>
+        <br>
+    </div>
+    <div class="roomListRoom__meta">
+    <div><img src="{{prescription.img.url}}"></div>
+    <hr>
+    
+        
+    </div>
+</div>
+{% endfor %}
